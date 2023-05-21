@@ -31,8 +31,8 @@ def get_review():
     response = openai.Completion.create(
         engine=model,
         prompt=prompt,
-        temperature=0.55,
-        max_tokens=2048,
+        temperature=0.2,
+        max_tokens=4096,
         top_p=1,
         frequency_penalty=0.3,
         presence_penalty=0.0,
