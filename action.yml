@@ -1,5 +1,5 @@
 name: 'GPTReviewWorkflow'
-description: 'GPT-3.5 reviews your PR'
+description: 'GPT-4 reviews your PR'
 branding:
   icon: 'eye'
   color: 'gray-dark'
@@ -47,7 +47,7 @@ runs:
       - name: Fetch review logic
         uses: wei/wget@v1
         with:
-          args: -O review.py https://raw.githubusercontent.com/mono-chrome/GPTReviewWorkflow/main/review.py
+          args: -O review.py https://raw.githubusercontent.com/MXCzkEVM/GPTReviewWorkflow/gpt4/review.py
       - name: Review PR and make comment
         shell: bash
         run: |
