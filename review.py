@@ -9,7 +9,7 @@ def get_review():
     ACCESS_TOKEN = os.getenv("GITHUB_TOKEN")
     GIT_COMMIT_HASH = os.getenv("GIT_COMMIT_HASH")
     PR_PATCH = os.getenv("GIT_PATCH_OUTPUT")
-    model = "gpt-3.5-turbo"
+    model = "gpt-4"
     openai.api_key = os.getenv("OPENAI_API_KEY")
     openai.organization = os.getenv("OPENAI_ORG_KEY")
     pr_link = os.getenv("LINK")
@@ -26,13 +26,13 @@ def get_review():
     task_list = f"- Review the code changes (diffs) and provide feedback.\n- If there are any bugs, highlight them.\n- Do not highlight minor issues and nitpicks.\n- View this as one pull request and don't mention individual patches.\n- Look out for typos in repeating variables.\n- Use markdown formatting.\n- Use bullet points if you have multiple comments.\n"
     prompt = intro + explanation + patch_info + task_headline + task_list
 
-    print(f"\nPrompt sent to GPT-3.5: {prompt}\n")
+    print(f"\nPrompt sent to GPT-4: {prompt}\n")
 
     response = openai.Completion.create(
         engine=model,
         prompt=prompt,
         temperature=0.2,
-        max_tokens=4096,
+        max_tokens=8000,
         top_p=1,
         frequency_penalty=0.3,
         presence_penalty=0.0,
