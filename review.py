@@ -28,7 +28,7 @@ def get_review():
 
     print(f"\nPrompt sent to GPT-4: {prompt}\n")
 
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
         engine=model,
         prompt=prompt,
         temperature=0.2,
